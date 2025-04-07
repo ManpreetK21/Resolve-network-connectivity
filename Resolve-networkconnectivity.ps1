@@ -1,13 +1,13 @@
-﻿#Before running the script make sure to open Powershell with administrator Privileges
+#Before running the script make sure to open Powershell with administrator Privileges
 
-#This script is written to resolve connectivity issues. The script do as follows: 
-#  1. Clear DNS Cache to start with clean lookups to make sure there is no incorrect DNS responses 
-#  2. Then it requests the dhcp server for new dhcp ip address configurations
-#  3. Then it checks if the connection is secured and media is connected
-#  4. If still doesnot resolve then it gives the static IP address connectivity for streamless connection
-#  5. Then, it checks the connectivity again to make sure network is connected 
-#  6. The scripts ends
+<#
+This script is written to resolve connectivity issues.
 
+The script clears the DNS cache and then request DHCP server for new IP-address
+If the network is still not connected, then it changes the ip-address from dynamic to static for stable connection. 
+If these steps do not resolve the issue, the script will display an error message, suggesting that further assistance from a network expert may be needed.
+
+#>
 # Clear DNS Cache
 Clear-DnsClientCache
 #variable for adapter name
@@ -66,5 +66,7 @@ else {
     Exit
 
 }
+
+
 
 
